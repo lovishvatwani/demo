@@ -1,0 +1,28 @@
+{
+  "commands": [
+    {
+      "description": "Create a Customer — Valid Request",
+      "curl": "curl -X POST http://localhost:8080/customers \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"dateOfBirth\": \"1990-01-01\",\n  \"metadata\": \"VIP Customer\"\n}'"
+    },
+    {
+      "description": "Create a Customer — Missing Mandatory Field (Validation Failure)",
+      "curl": "curl -X POST http://localhost:8080/customers \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"lastName\": \"Smith\",\n  \"dateOfBirth\": \"1985-05-10\"\n}'"
+    },
+    {
+      "description": "Get a Customer by Valid ID",
+      "curl": "curl -X GET http://localhost:8080/customers/1"
+    },
+    {
+      "description": "Get a Customer by Invalid ID (Not Found)",
+      "curl": "curl -X GET http://localhost:8080/customers/9999"
+    },
+    {
+      "description": "Create Customer — Bad Date Format (NO Validation Failure as this is handled with a customer dateDeserializer)",
+      "curl": "curl -X POST http://localhost:8080/customers \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"firstName\": \"Alice\",\n  \"lastName\": \"Wonderland\",\n  \"dateOfBirth\": \"31-12-1999\",\n  \"metadata\": \"Test User\"\n}'"
+    },
+    {
+      "description": "Create Customer — With Nullable Metadata",
+      "curl": "curl -X POST http://localhost:8080/customers \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"firstName\": \"Bob\",\n  \"lastName\": \"Marley\",\n  \"dateOfBirth\": \"1980-10-15\"\n}'"
+    }
+  ]
+}

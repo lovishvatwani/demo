@@ -28,3 +28,10 @@ Clone the project using SSH or HTTPS:
 
 ```bash
 mvn spring-boot:run
+
+## cURL Command Examples
+
+For testing the Customer Service API, you can also refer to the `curl-commands.json` file in the repository, which contains a collection of cURL commands for various use cases.
+
+You can use these commands to interact with the API and test different endpoints, such as creating customers, retrieving customer details, and handling validation errors.
+
